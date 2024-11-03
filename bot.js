@@ -1,7 +1,8 @@
 const { Telegraf } = require('telegraf');
 const translate = require('google-translate-api-x');
+require('dotenv').config();
 
-const botToken = '7831983322:AAGQmZVQ-_iHiFmE_ufV7BZyQMds_aQDjuo';
+const botToken = process.env.BOT_TOKEN;
 const targetChannel = '@TrackingIsraeliGenocideAR';
 const allowedUserId = 2124127983;
 
