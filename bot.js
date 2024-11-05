@@ -9,6 +9,7 @@ const allowedUserId = 2124127983;
 const express = require('express');
 const path = require('path');
 const app = express();
+const PORT = process.env.PORT
 
 // خدمة الملفات الثابتة من المجلد الحالي
 app.use(express.static(path.join(__dirname)));
