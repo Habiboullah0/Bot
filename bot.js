@@ -3,8 +3,24 @@ const translate = require('google-translate-api-x');
 require('dotenv').config();
 
 const botToken = process.env.BOT_TOKEN;
-const targetChannel = '@TrackingIsraeliGenocideAR';
+const targetChannel = "@TrackingIsraeliGenocideAR";
 const allowedUserId = 2124127983;
+
+const express = require('express');
+const path = require('path');
+const app = express();
+
+// خدمة الملفات الثابتة من المجلد الحالي
+app.use(express.static(path.join(__dirname)));
+
+// توجيه طلب الصفحة الرئيسية إلى index.html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
 
 const bot = new Telegraf(botToken);
 const mediaGroups = {};
